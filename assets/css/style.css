@@ -11,3 +11,15 @@ header h1 {
     padding-top: 8px;
 
 }
+
+.container {
+    display: flex;
+}
+
+.search {
+    flex: 1;
+}
+
+.weather {
+    flex: 6;
+}
