@@ -1,0 +1,13 @@
+header {
+    display: block;
+    background: linear-gradient(to right, rgb(92, 92, 241), rgb(22, 22, 78));
+    text-align: center;
+    height: 55px;
+}
+
+header h1 {
+    font-size: 35px;
+    color: white;
+    padding-top: 8px;
+
+}
