@@ -9,7 +9,7 @@
 
 ## Installation
     Web Page is in the link below
-[Code Quiz](https://neglon.github.io/coding-quiz/)
+[Weather Dashboard](https://neglon.github.io/weather-dashboard/)
 
 ## Usage
     Upon Vising the page, you are presented with a search bar in the top left corner of the screen, showing a place holder city of San Diego in it. To the right is an already formed box, waiting for data from a search to populate the current Weather. After entering a search, the current weather box and 5, 5 fay forcast boxes populate showing, the date, current temp, a symbol for the current weather, wind speed, and humidity. With every city that you search for, a corresponding button is created below the search bar, these buttons can be clicked to bring back up the weather data for the city that is labeled on the button. Refreshing the page clears these buttons.
