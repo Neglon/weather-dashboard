@@ -14,16 +14,14 @@ var cHumidity = document.getElementById('cHumidity');
 //5 day weather dom id variables to come
 var fiveDay = document.getElementById('forecast');
 
-
-
-
+//gets the citys lat and longitude then calls the next function to retrieve the actual weather data
 function getCityApi() {
     var cityInput = document.getElementById('cityInput').value.trim();
-    var cityApi = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityInput + '&limit=5&appid=14e34ba9eff83ac7a4fb032306e18a09';
+    var cityApi = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityInput + '&limit=5&appid=14e34ba9eff83ac7a4fb032306e18a09';
     //console.log(cityApi);
     
 
-    
+    //api call to retrieve the actual lat long data
     fetch(cityApi)
         .then(function (response) {
             return response.json();
@@ -35,15 +33,10 @@ function getCityApi() {
             //console.log("is this passing the user input ", cityInput);
             latLongApi(data, cityInput);
             
-    });
-
-
-    
-    
+    }); 
 }
 
-
-
+//api call for the city based on the lat long, also contains function call to make the buttons under search
 function latLongApi(data, cityInput) {
     var lat = data[0].lat;
     var lon = data[0].lon;
@@ -51,7 +44,7 @@ function latLongApi(data, cityInput) {
     //console.log("Lat", data[0].lat);
     //console.log("Lon", data[0].lon);
 
-    var getWeather = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&cnt=48&appid=14e34ba9eff83ac7a4fb032306e18a09'
+    var getWeather = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&units=imperial&cnt=48&appid=14e34ba9eff83ac7a4fb032306e18a09'
     //console.log(getWeather);
     makeBtn(getWeather, cityInput);
 
@@ -82,7 +75,6 @@ function makeBtn(data, cityInput) {
     btnHistoryEl.appendChild(button);
 
     button.textContent = cityInput;
-
 }
 
 //function to display the current weather in searched city
@@ -103,7 +95,7 @@ function displayWeather(data) {
     cHumidity.textContent = data.list[0].main.humidity
 }
 
-
+//function to display the 5 day forcast by creating elements and populating them with the relevant data using a for loop to iterate through the api array
 function displayFiveDay(data) {
     //clears out any old 5 day forcast html
     fiveDay.innerHTML = '';
@@ -137,13 +129,10 @@ function displayFiveDay(data) {
         newDivEl.appendChild(fHumid);
 
         fiveDay.appendChild(newDivEl);
-
-
-
-
     }   
 }
 
+//function for clicking on the populated buttons to re display the clicked buttons cities data
 function buttonGetApi(event) {
     var btnClick = event.target;
 
@@ -160,12 +149,6 @@ function buttonGetApi(event) {
 
 }
 
-
-
-
-
-
-
- 
+//event listners for clicks on search button and history buttons
 searchBtn.addEventListener("click", getCityApi);
 btnHistoryEl.addEventListener("click", buttonGetApi);
