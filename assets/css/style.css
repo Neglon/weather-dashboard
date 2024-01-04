@@ -23,3 +23,12 @@ header h1 {
 .weather {
     flex: 6;
 }
+
+.historyBtn {
+
+}
+
+#cSymbol {
+    height: 50px;
+    width: 50px;
+}
